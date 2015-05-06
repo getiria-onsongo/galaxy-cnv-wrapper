@@ -11,31 +11,13 @@
       <requirement type="package" version="0.3.1">DBI</requirement>
       <requirement type="package" version="0.10.2">RMySQL</requirement>
       <requirement type="package" version="1.7-12">zoo</requirement>
-      <requirement type="set_environment">R_SCRIPT_PATH</requirement>
+      <requirement type="package" version="1.0.0">CopyNumberDeletion</requirement>
   </requirements>
   
- 
  <command >
-     ln -s \$R_SCRIPT_PATH/cnvAnalysis.R cnvAnalysis.R;
      Rscript CopyNumberDeletion.R  --s_name $sample_name --c_name $c_sample_name --s_pileup $s_pileup --s_bwa $s_bwa --s_bowtie $s_bowtie --c_pileup $c_pileup --c_bwa $c_bwa --c_bowtie $c_bowtie --platform $platform --ordered_genes $ordered_genes --db_h localhost --db_u onson001 --db_p masara15 --db_d fairview_2013_09_25
  </command>
-
-<!--
  
- <command >
- ln -s $_local_path/cnvAnalysis.R cnvAnalysis.R; Rscript CopyNumberDeletion.R  --s_name $sample_name --c_name $c_sample_name --s_pileup $s_pileup --s_bwa $s_bwa --s_bowtie $s_bowtie --c_pileup $c_pileup --c_bwa $c_bwa --c_bowtie $c_bowtie --platform $platform --ordered_genes $ordered_genes --db_h localhost --db_u onson001 --db_p masara15 --db_d fairview_2013_09_25
- </command>
- 
- 
-Below is the original command.
-
- <command interpreter="Rscript">
-      CopyNumberDeletion.R  --s_name $sample_name --c_name $c_sample_name --s_pileup $s_pileup --s_bwa $s_bwa --s_bowtie $s_bowtie --c_pileup $c_pileup --c_bwa $c_bwa --c_bowtie $c_bowtie --platform $platform --ordered_genes $ordered_genes --db_h localhost --db_u onson001 --db_p masara15 --db_d fairview_2013_09_25
-
- </command>
-
- -->
-
   <inputs>
     <param name="sample_name" type="text"  value="11_05910" label="sample name" />
     <param name="s_pileup" format="pileup" type="data" label="sample coverage pileup"/>
