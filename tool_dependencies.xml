@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<tool_dependency>
+    
+    <package name="R" version="2.9.2">
+        <install version="1.0">
+            <actions>
+                <action type="download_by_url">http://CRAN.R-project.org/src/base/R-2/R-2.9.2.tar.gz</action>
+                <action type="shell_command">./configure --prefix=$INSTALL_DIR</action>
+                <action type="shell_command">make</action>
+                <action type="set_environment">
+                    <environment_variable name="PATH" action="prepend_to">$INSTALL_DIR/bin</environment_variable>
+                </action>
+            </actions>
+        </install>
+        <readme>You need a FORTRAN compiler or perhaps f2c in addition to a C compiler to build R.</readme>
+    </package>
+    
+    
+    
+    <package name="optparse" version="0.8">
+        <install version="1.0">
+            <actions>
+                <action type="download_by_url">http://cran.r-project.org/src/contrib/Archive/optparse/optparse_0.8.tar.gz</action>
+                <action type="shell_command">R CMD INSTALL optparse_0.8.tar.gz</action>
+                <action type="set_environment">
+                    <environment_variable name="PATH" action="prepend_to">$INSTALL_DIR/bin</environment_variable>
+                </action>
+            </actions>
+        </install>
+        <readme>Does not work with R versions greater than 2.9.2 </readme>
+    </package>
+    
+    <set_environment version="1.0">
+        <environment_variable action="set_to" name="R_SCRIPT_PATH">$REPOSITORY_INSTALL_DIR</environment_variable>
+    </set_environment>
+</tool_dependency>
